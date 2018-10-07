@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.*;
 
 /**
  * A class to hold details of audio tracks.
@@ -15,7 +16,9 @@ public class MusicOrganizer
     private MusicPlayer player;
     // A reader that can read music files and load them as tracks.
     private TrackReader reader;
-
+    
+    //A track count
+    static int countplay;
     /**
      * Create a MusicOrganizer
      */
@@ -27,6 +30,9 @@ public class MusicOrganizer
         readLibrary("../audio");
         System.out.println("Music library loaded. " + getNumberOfTracks() + " tracks.");
         System.out.println();
+        
+        //store number of track in countplay
+        countplay = getNumberOfTracks();
     }
     
     /**
@@ -56,7 +62,8 @@ public class MusicOrganizer
         if(indexValid(index)) {
             Track track = tracks.get(index);
             player.startPlaying(track.getFilename());
-            System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
+            System.out.println("Now playing: " + track.getArtist() +
+                " - " + track.getTitle());
         }
     }
     
