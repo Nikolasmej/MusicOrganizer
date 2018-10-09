@@ -1,6 +1,11 @@
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.*;
 
+=======
+//import  Random class
+import java.util.Random;
+>>>>>>> RandomSong
 /**
  * A class to hold details of audio tracks.
  * Individual tracks may be played.
@@ -121,6 +126,24 @@ public class MusicOrganizer
     {
         if(indexValid(index)) {
             tracks.remove(index);
+        }
+    }
+    /**
+     * Exercise 4.43
+     * Adding method to play random track.
+     * book and online references.
+     * random int for track.size and boolean for valid randInt
+     */
+    public void playRandomTrack()  {
+    Random rand = new Random();
+    int randInt = rand.nextInt(tracks.size());
+    
+        if (indexValid(randInt))  {
+         Track track = tracks.get(randInt);
+         player.startPlaying(track.getFilename());
+         
+         System.out.println("You are listening to: " +
+                            track.getArtist() + " " + track.getTitle());
         }
     }
     
